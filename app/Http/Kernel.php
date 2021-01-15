@@ -47,7 +47,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'cors',
-            'throttle:api',
+            'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             'signature:X-Application-Name',
         ],

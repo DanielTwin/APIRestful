@@ -169,7 +169,7 @@ class UserController extends ApiController
 
     public function resend(User $user)
     {
-        if ($user->esVerificado()) {
+        if ($user->isVerified()) {
             return $this->errorResponse('Este usuario ya ha sido verificado.', 409);
         }
 
