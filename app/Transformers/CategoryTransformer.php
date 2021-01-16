@@ -40,9 +40,9 @@ class CategoryTransformer extends TransformerAbstract
             'fechaActualizacion' => (string)$category->updated_at,
             'fechaEliminacion' => isset($category->deleted_at) ? (string) $category->deleted_at : null,
 
-            'links' => [
+            'links' => [                                                           //component links for restful api to store the HATEOAS
                 [
-                    'rel' => 'self',
+                    'rel' => 'self',                                               //link itself, because the same resource can appear  in several parts.
                     'href' => route('categories.show', $category->id),
                 ],
                 [

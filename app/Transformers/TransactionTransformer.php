@@ -41,9 +41,9 @@ class TransactionTransformer extends TransformerAbstract
             'fechaActualizacion' => (string)$transaction->updated_at,
             'fechaEliminacion' => isset($transaction->deleted_at) ? (string) $transaction->deleted_at : null,
 
-            'links' => [
+            'links' => [                                                                //component links for restful api to store the HATEOAS
                 [
-                    'rel' => 'self',
+                    'rel' => 'self',                                                    //link itself, because the same resource can appear  in several parts.
                     'href' => route('transactions.show', $transaction->id),
                 ],
                 [

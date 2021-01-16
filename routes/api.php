@@ -38,49 +38,47 @@ use Laravel\Passport\Http\Controllers\AccessTokenController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 //Buyers route
-Route::resource('buyers', BuyerController::class)->only(['index', 'show']);
-Route::apiResource('buyers.sellers',BuyerSellerController::class)->only('index');
-Route::apiResource('buyers.products', BuyerProductController::class)->only('index');
-Route::apiResource('buyers.categories', BuyerCategoryController::class)->only('index');
-Route::apiResource('buyers.transactions', BuyerTransactionController::class)->only('index');
+Route::resource('/buyers', BuyerController::class)->only(['index', 'show']);
+Route::apiResource('/buyers.sellers',BuyerSellerController::class)->only('index');
+Route::apiResource('/buyers.products', BuyerProductController::class)->only('index');
+Route::apiResource('/buyers.categories', BuyerCategoryController::class)->only('index');
+Route::apiResource('/buyers.transactions', BuyerTransactionController::class)->only('index');
 
 //Categories route
-Route::apiResource('categories', CategoryController::class);
-Route::apiResource('categories.buyers', CategoryBuyerController::class)->only('index');
-Route::apiResource('categories.sellers', CategorySellerController::class)->only('index');
-Route::apiResource('categories.products', CategoryProductController::class)->only('index');
-Route::apiResource('categories.transactions', CategoryTransactionController::class)->only('index');
+Route::apiResource('/categories', CategoryController::class);
+Route::apiResource('/categories.buyers', CategoryBuyerController::class)->only('index');
+Route::apiResource('/categories.sellers', CategorySellerController::class)->only('index');
+Route::apiResource('/categories.products', CategoryProductController::class)->only('index');
+Route::apiResource('/categories.transactions', CategoryTransactionController::class)->only('index');
 //Products route
 Route::apiResource('/products', ProductController::class);
-Route::apiResource('products.buyers', ProductBuyerController::class)->only('index');
-Route::apiResource('products.categories', ProductCategoryController::class)->only(['index', 'update', 'destroy']);
-Route::apiResource('products.transactions', ProductTransactionController::class)->only('index');
-Route::apiResource('products.buyers.transactions', ProductBuyerTransactionController::class)->only('store');
+Route::apiResource('/products.buyers', ProductBuyerController::class)->only('index');
+Route::apiResource('/products.categories', ProductCategoryController::class)->only(['index', 'update', 'destroy']);
+Route::apiResource('/products.transactions', ProductTransactionController::class)->only('index');
+Route::apiResource('/products.buyers.transactions', ProductBuyerTransactionController::class)->only('store');
 
 
 
 //Sellers route
-Route::apiResource('sellers', SellerController::class)->only(['index', 'show']);
-Route::apiResource('sellers.buyers', SellerBuyerController::class)->only('index');
-Route::apiResource('sellers.products', SellerProductController::class)->except(['create', 'show', 'edit']);
-Route::apiResource('sellers.categories', SellerCategoryController::class)->only('index');
-Route::apiResource('sellers.transactions', SellerTransactionController::class)->only('index');
+Route::apiResource('/sellers', SellerController::class)->only(['index', 'show']);
+Route::apiResource('/sellers.buyers', SellerBuyerController::class)->only('index');
+Route::apiResource('/sellers.products', SellerProductController::class)->except(['create', 'show', 'edit']);
+Route::apiResource('/sellers.categories', SellerCategoryController::class)->only('index');
+Route::apiResource('/sellers.transactions', SellerTransactionController::class)->only('index');
 
 //Transactions route
-Route::apiResource('transactions', TransactionController::class)->only(['index', 'show']);
-Route::apiResource('transactions.categories',TransactionCategoryController::class)->only('index');
-Route::apiResource('transactions.sellers',TransactionSellerController::class)->only('index');
+Route::apiResource('/transactions', TransactionController::class)->only(['index', 'show']);
+Route::apiResource('/transactions.categories',TransactionCategoryController::class)->only('index');
+Route::apiResource('/transactions.sellers',TransactionSellerController::class)->only('index');
 
 
 //Users route
 Route::get('/users/me', [UserController::class, 'me'])->name('me');
-Route::apiResource('/users', UserController::class, 'users')->except(['create', 'edit']);
+Route::apiResource('/users', UserController::class)->except(['create', 'edit']);
 Route::get('/users/verify/{token}', [UserController::class, 'verify'])->name('verify');
 Route::get('/users/{user}/resend', [UserController::class, 'resend'])->name('resend');
 
-Route::post('oauth/token', [AccessTokenController::class, 'issueToken'])->name('issueToken');
+Route::post('/oauth/token', [AccessTokenController::class, 'issueToken'])->name('issueToken');

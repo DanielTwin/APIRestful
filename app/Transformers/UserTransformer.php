@@ -42,9 +42,9 @@ class UserTransformer extends TransformerAbstract
             'fechaActualizacion' => (string)$user->updated_at,
             'fechaEliminacion' => isset($user->deleted_at) ? (string) $user->deleted_at : null,
 
-            'links' => [
+            'links' => [                                                 //component links for restful api to store the HATEOAS
                 [
-                    'rel' => 'self',
+                    'rel' => 'self',                                     //link itself, because the same resource can appear  in several parts.
                     'href' => route('users.show', $user->id),
                 ],
             ],

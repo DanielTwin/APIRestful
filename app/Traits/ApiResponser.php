@@ -111,9 +111,9 @@ trait ApiResponser
 		$url = request()->url();
 		$queryParams = request()->query();
 
-		ksort($queryParams);
+		ksort($queryParams);					//method of php ksort, sort an array depending on the keys
 
-		$queryString = http_build_query($queryParams);
+		$queryString = http_build_query($queryParams); //php method that orders each of the parameters of the array received.
 
 		$fullUrl = "{$url}?{$queryString}";
 
