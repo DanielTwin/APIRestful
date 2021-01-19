@@ -50,6 +50,7 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             'signature:X-Application-Name',
+            'bindings',
         ],
     ];
 
@@ -74,6 +75,9 @@ class Kernel extends HttpKernel
         'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
         'transform.input' => \App\Http\Middleware\TransformInput::class,
+        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'cors' => \Fruitcake\Cors\HandleCors::class,
+        'client.credentials' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
     ];
 
 

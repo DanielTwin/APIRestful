@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
 use Illuminate\Routing\Middleware\ThrottleRequests;
 
-class CustomThrottleRequest extends ThrottleRequests
+class CustomThrottleRequests extends ThrottleRequests
 {
     use ApiResponser;
     

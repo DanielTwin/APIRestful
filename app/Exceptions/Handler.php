@@ -115,7 +115,7 @@ class Handler extends ExceptionHandler
         }
 
         if ($exception instanceof TokenMismatchException) {
-            return redirect()->back()->withInput($request->input());
+            return redirect()->back()->withInput($request->input());    //redirection to the previous site with the original values, by means of $ request-> input or all, each of the inputs that the user entered when logging in or trying to log in will be sent, preventing the user from having to enter his / her name once more username and password of course
         }
 
         if (config('app.debug')) {
@@ -174,9 +174,9 @@ class Handler extends ExceptionHandler
         return $this->errorResponse($errors, 422);
     }
 
-    private function isFrontend($request)
+    private function isFrontend($request)                   //private function that determines if the request comes directly from the frontend
     {
-        return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');
+        return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');  //returns validation through the 'acceptsHtml ()' function that determines if html is accepted and to know exactly that the request comes from the client, validation is done through creating a collection through the array of possible middleware that has a web path Through obtaining the list of routes from the web and also the list of possible middlewares and through the contains method we will know if that collection contains one called web
     }
     
 }

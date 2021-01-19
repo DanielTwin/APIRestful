@@ -9,8 +9,9 @@ use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\DB;
 use App\Transformers\TransactionTransformer;
+use App\Http\Controllers\ApiController;
 
-class ProductBuyerTransactionController extends Controller
+class ProductBuyerTransactionController extends ApiController
 {
     
     public function __construct()
