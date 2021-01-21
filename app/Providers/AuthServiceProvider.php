@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         User::class => UserPolicy::class,
         Transaction::class => TransactionPolicy::class,
         Product::class => ProductPolicy::class,
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -41,6 +41,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+
+        Gate::define('admin-action', function ($user) {
+            return $user->isAdministator();
+        });
+
         Passport::routes();
         Passport::tokensExpireIn(Carbon::now()->addMinutes(30));    //get the exact date with the Carbon library, and allow the tokens to be valid for the desired time by means of the addMinutes, Hours or Seconds methods
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));

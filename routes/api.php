@@ -77,7 +77,7 @@ Route::apiResource('/transactions.sellers',TransactionSellerController::class)->
 
 //Users route
 Route::get('/users/me', [UserController::class, 'me'])->name('me');
-Route::apiResource('/users', UserController::class)->except(['create', 'edit']);
+Route::apiResource('/users', UserController::class);
 Route::get('/users/verify/{token}', [UserController::class, 'verify'])->name('verify');
 Route::get('/users/{user}/resend', [UserController::class, 'resend'])->name('resend');
 
