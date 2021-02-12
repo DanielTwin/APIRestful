@@ -38,10 +38,10 @@ Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEm
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 
-Route::get('/home/my-tokens', [HomeController::class, 'getTokens'])->name('personal-tokens');
-Route::get('/home/my-clients', [HomeController::class, 'getClients'])->name('personal-clients');
-Route::get('/home/authorized-clients', [HomeController::class, 'getAuthorizedClients'])->name('authorized-clients');
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('home/my-tokens', [HomeController::class, 'getTokens'])->name('personal-tokens');
+Route::get('home/my-clients', [HomeController::class, 'getClients'])->name('personal-clients');
+Route::get('home/authorized-clients', [HomeController::class, 'getAuthorizedClients'])->name('authorized-clients');
+Route::get('home', [HomeController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
