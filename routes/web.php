@@ -43,8 +43,6 @@ Route::get('home/my-clients', [HomeController::class, 'getClients'])->name('pers
 Route::get('home/authorized-clients', [HomeController::class, 'getAuthorizedClients'])->name('authorized-clients');
 Route::get('home', [HomeController::class, 'index']);
 
-Route::get('login');
-
 Route::get('/', function () {
     return view('welcome');
 })->middleware('guest');
