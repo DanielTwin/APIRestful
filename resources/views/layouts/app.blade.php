@@ -39,7 +39,6 @@
                     <ul class="navbar-nav mr-auto">
                             @if (Auth::check())
                                 <li><a href="{{route('personal-tokens')}}">My tokens</a></li>
-                     
                             @endif
                     </ul>
                     <!-- Right Side Of Navbar -->
