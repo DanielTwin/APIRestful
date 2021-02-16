@@ -34,11 +34,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav" style="display: flex; justify-content: space-between; align-items: center;">
                             @if (Auth::check())
                                 <li><a href="{{route('personal-tokens')}}">My tokens</a></li>
+                                <li><a href="{{route('personal-clients')}}">My clients</a></li>
+                                <li><a href="{{route('authorized-clients')}}">Authorized clients</a></li>
                             @endif
                     </ul>
                     <!-- Right Side Of Navbar -->
