@@ -36,7 +36,7 @@
 
                 <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav" style="display: flex; justify-content: space-between; align-items: center;">
+                    <ul class="navbar-nav " style="display: flex; justify-content: space-between; align-items: center; width:40%;">
                             @if (Auth::check())
                                 <li><a href="{{route('personal-tokens')}}">My tokens</a></li>
                                 <li><a href="{{route('personal-clients')}}">My clients</a></li>

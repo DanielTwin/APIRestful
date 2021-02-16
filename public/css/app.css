@@ -127,7 +127,7 @@ ol ol,
 ul ul,
 ol ul,
 ul ol {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 dt {
@@ -4534,9 +4534,8 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   padding-left: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   list-style: none;
-  margin-right: 1rem;
 }
 
 .navbar-nav .nav-link {
