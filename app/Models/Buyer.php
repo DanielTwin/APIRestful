@@ -26,7 +26,7 @@ class Buyer extends User
 
     }
 
-    public function transations(){
+    public function transactions(){
 
         return $this->hasMany(Transaction::class);
 

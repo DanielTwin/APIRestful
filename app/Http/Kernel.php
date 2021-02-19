@@ -72,7 +72,7 @@ class Kernel extends HttpKernel
         'throttle' => \App\Http\Middleware\CustomThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'signature' => \App\Http\Middleware\SignatureMiddleware::class,
-        'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
+        'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,     //he middleware checks that the received access token has at least one scope in use from those defined.
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
         'transform.input' => \App\Http\Middleware\TransformInput::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
